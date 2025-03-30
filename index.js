@@ -1,14 +1,16 @@
 const express = require('express')
 const app = express();
 const mongoose = require('mongoose');
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
 
-mongoose.connect("mongodb+srv://krgayan97:jlxdtOjLkyI2beuW@cluster0.c34arg4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-    .then(() => console.log('Connected to database!'));
+dotenv.config();
+connectDB();
 
-app.listen(1000,() => {
-    console.log("Server is running on port 1000")
+app.get("/", (req, res) => {
+    res.send("API is running...");
 });
 
-app.get('/',(req,res)=>{
-    res.send("Hello World");
-})
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
