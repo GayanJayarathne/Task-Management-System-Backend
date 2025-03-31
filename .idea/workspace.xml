@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc011b0-1143-473d-a91c-563d28dc5f12" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/userController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/authRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/userRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
@@ -31,18 +37,21 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Projects/Assignment/MernStackAssignment/Task-Management-System-Backend",
+    "last_opened_file_path": "C:/Projects/Assignment/MernStackAssignment/Task-Management-System-Backend/routes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\Assignment\MernStackAssignment\Task-Management-System-Backend\routes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\Assignment\MernStackAssignment\Task-Management-System-Backend\config" />
     </key>
@@ -88,6 +97,7 @@
       <workItem from="1743352634503" duration="628000" />
       <workItem from="1743353302303" duration="22000" />
       <workItem from="1743353336272" duration="119000" />
+      <workItem from="1743353882976" duration="7940000" />
     </task>
     <task id="LOCAL-00001" summary="successfully setup the project&#10;DB connected&#10;Express installed&#10;Mongoose, MongoDB, nodemon installed">
       <option name="closed" value="true" />
@@ -105,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743102847067</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="setup db config">
+      <option name="closed" value="true" />
+      <created>1743354104288</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743354104288</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +144,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="successfully setup the project&#10;DB connected&#10;Express installed&#10;Mongoose, MongoDB, nodemon installed" />
-    <option name="LAST_COMMIT_MESSAGE" value="successfully setup the project&#10;DB connected&#10;Express installed&#10;Mongoose, MongoDB, nodemon installed" />
+    <MESSAGE value="setup db config" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup db config" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
