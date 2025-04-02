@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         match: /^\+\d{1,3}\d{7,14}$/,
     },
-    password: { type: String, select: false },
+    password: { type: String },
     address: {
         formatted: { type: String, required: true },
         latitude: { type: Number, required: true },

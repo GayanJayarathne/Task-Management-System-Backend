@@ -16,7 +16,12 @@ const createTask = async (req, res) => {
 // get tasks
 const getTasks = async (req, res) => {
     try {
-        const tasks = await Task.find().select("-password");
+        const tasks = await Task.find()
+            .populate({
+                path: 'userId',
+                select: 'firstName lastName'
+            });
+
         res.json({message:'Success', data:tasks});
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -69,7 +74,11 @@ const getTasksByUserId = async (req, res) => {
     }
 
     try {
-        const tasks = await Task.find({ userId });
+        const tasks = await Task.find({ userId })
+            .populate({
+                path: 'userId',
+                select: 'firstName lastName'
+            });
 
         if (!tasks.length) {
             return res.status(404).json({ message: 'No tasks found for this user.' });

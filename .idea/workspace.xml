@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc011b0-1143-473d-a91c-563d28dc5f12" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/models/Task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/taskRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/userRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/taskController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/taskController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,7 @@
       <workItem from="1743352634503" duration="628000" />
       <workItem from="1743353302303" duration="22000" />
       <workItem from="1743353336272" duration="119000" />
-      <workItem from="1743353882976" duration="23204000" />
+      <workItem from="1743353882976" duration="28594000" />
     </task>
     <task id="LOCAL-00001" summary="successfully setup the project&#10;DB connected&#10;Express installed&#10;Mongoose, MongoDB, nodemon installed">
       <option name="closed" value="true" />
@@ -136,7 +134,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743584694010</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Task Crud APIs">
+      <option name="closed" value="true" />
+      <created>1743614663482</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743614663483</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Task Crud APIs">
+      <option name="closed" value="true" />
+      <created>1743614685180</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743614685180</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +174,8 @@
     <MESSAGE value="setup db config" />
     <MESSAGE value="User Crud and Auth api" />
     <MESSAGE value="User Crud updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Crud updates" />
+    <MESSAGE value="Task Crud APIs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task Crud APIs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

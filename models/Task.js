@@ -7,7 +7,7 @@ const taskSchema = new mongoose.Schema({
         startDate:  { type: String },
         endDate: { type: String }
     },
-    userId: { type: String },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     isEnabled: { type: Boolean, default: false },
 }, { timestamps: true });
 
