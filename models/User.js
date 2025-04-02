@@ -14,15 +14,22 @@ const userSchema = new mongoose.Schema({
         required: true,
         match: /^\+\d{1,3}\d{7,14}$/,
     },
-    password: { type: String },
+    password: { type: String, select: false },
     address: {
         formatted: { type: String, required: true },
         latitude: { type: Number, required: true },
         longitude: { type: Number, required: true },
     },
     role: { type: String, default: 'basic-user' },
-    isEnabled: { type: Boolean, default: true },
+    isEnabled: { type: Boolean, default: false },
     isFirstLogin: { type: Boolean, default: true },
 }, { timestamps: true });
+
+userSchema.set("toJSON", {
+    transform: function (doc, ret) {
+        delete ret.password;
+        return ret;
+    },
+});
 
 module.exports = mongoose.model("User", userSchema);

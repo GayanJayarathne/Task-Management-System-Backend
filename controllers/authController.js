@@ -39,18 +39,20 @@ const authenticateUser = async (req, res) => {
         );
 
         const userData = {
-            id: user._id,
-            email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            role: user.role,
-            mobile: user.mobile,
-            isEnabled: user.isEnabled,
+            user : {
+                id: user._id,
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                role: user.role,
+                mobile: user.mobile,
+                isEnabled: user.isEnabled,
+            },
             token: token
         };
 
         console.log('Authentication successful.');
-        return res.status(200).json({message:successMessage,user:userData});
+        return res.status(200).json({message:successMessage,data:userData});
     } catch (error) {
         console.error('Error authenticating user:', error);
         return res.status(500).json({ message: 'Internal server error.' });

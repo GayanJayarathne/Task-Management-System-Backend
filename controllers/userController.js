@@ -4,12 +4,10 @@ const saltRounds = 10;
 
 const createUser = async (req, res) => {
     try {
-        if (!req.body.password) {
-            return res.status(400).json({ message: "Password is required." });
+        if (req.body.password) {
+            const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+            req.body.password = hashedPassword;
         }
-
-        const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
-        req.body.password = hashedPassword;
 
         const user = new User(req.body);
         await user.save();
@@ -24,7 +22,7 @@ const createUser = async (req, res) => {
 // Get all users
 const getUsers = async (req, res) => {
     try {
-        const users = await User.find();
+        const users = await User.find().select("-password");
         res.json(users);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -34,7 +32,7 @@ const getUsers = async (req, res) => {
 // Get a user by ID
 const getUserById = async (req, res) => {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findById(req.params.id).select("-password");
         if (!user) return res.status(404).json({ message: "User not found" });
         res.json(user);
     } catch (error) {
@@ -45,13 +43,26 @@ const getUserById = async (req, res) => {
 // Update a user
 const updateUser = async (req, res) => {
     try {
-        const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (req.body.password) {
+            const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+            req.body.password = hashedPassword;
+        } else {
+            delete req.body.password;
+        }
+
+        const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            select: "-password",
+        });
+
         if (!user) return res.status(404).json({ message: "User not found" });
+
         res.json(user);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 // Delete a user
 const deleteUser = async (req, res) => {
