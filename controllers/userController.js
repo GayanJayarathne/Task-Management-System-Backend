@@ -75,5 +75,21 @@ const deleteUser = async (req, res) => {
     }
 };
 
-module.exports = { createUser, getUsers, getUserById, updateUser, deleteUser };
+const getUsersDropdown = async (req, res) => {
+    try {
+        const users = await User.find({ role: 'basic-user' }).select('firstName lastName _id').lean();
+
+        const dropdownOptions = users.map(user => ({
+            label: `${user.firstName} ${user.lastName}`,
+            value: user._id
+        }));
+
+        res.json(dropdownOptions);
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { createUser, getUsers, getUserById, updateUser, deleteUser, getUsersDropdown };
 
