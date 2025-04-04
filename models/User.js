@@ -23,6 +23,8 @@ const userSchema = new mongoose.Schema({
     role: { type: String, default: 'basic-user' },
     isEnabled: { type: Boolean, default: false },
     isFirstLogin: { type: Boolean, default: true },
+    otp: { type: String },
+    otpExpiration: { type: Date },
 }, { timestamps: true });
 
 userSchema.set("toJSON", {

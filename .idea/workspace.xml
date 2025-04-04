@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6dc011b0-1143-473d-a91c-563d28dc5f12" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/utils/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/taskController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/taskController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/authRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +95,7 @@
       <workItem from="1743352634503" duration="628000" />
       <workItem from="1743353302303" duration="22000" />
       <workItem from="1743353336272" duration="119000" />
-      <workItem from="1743353882976" duration="28594000" />
+      <workItem from="1743353882976" duration="34394000" />
     </task>
     <task id="LOCAL-00001" summary="successfully setup the project&#10;DB connected&#10;Express installed&#10;Mongoose, MongoDB, nodemon installed">
       <option name="closed" value="true" />
@@ -150,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743614685180</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="user api updates">
+      <option name="closed" value="true" />
+      <created>1743625883992</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743625883992</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +186,8 @@
     <MESSAGE value="User Crud and Auth api" />
     <MESSAGE value="User Crud updates" />
     <MESSAGE value="Task Crud APIs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task Crud APIs" />
+    <MESSAGE value="user api updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="user api updates" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
