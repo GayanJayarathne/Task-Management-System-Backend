@@ -16,7 +16,7 @@ const sendEmail = async (to, subject, text) => {
     });
 
     await transporter.sendMail({
-        from: '"Your App Name" <no-reply@yourapp.com>',
+        from: '"Task Management Sytem" <gayan@taskmanagementsystem.com>',
         to,
         subject,
         text,

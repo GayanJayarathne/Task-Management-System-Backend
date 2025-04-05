@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6dc011b0-1143-473d-a91c-563d28dc5f12" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/authRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/helpers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,7 @@
       <workItem from="1743352634503" duration="628000" />
       <workItem from="1743353302303" duration="22000" />
       <workItem from="1743353336272" duration="119000" />
-      <workItem from="1743353882976" duration="51485000" />
+      <workItem from="1743353882976" duration="51820000" />
     </task>
     <task id="LOCAL-00001" summary="successfully setup the project&#10;DB connected&#10;Express installed&#10;Mongoose, MongoDB, nodemon installed">
       <option name="closed" value="true" />
@@ -174,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743879857870</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Change password">
+      <option name="closed" value="true" />
+      <created>1743888671485</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743888671485</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +209,8 @@
     <MESSAGE value="user api updates" />
     <MESSAGE value="User authentication steps" />
     <MESSAGE value="user role authentication and refresh token" />
-    <option name="LAST_COMMIT_MESSAGE" value="user role authentication and refresh token" />
+    <MESSAGE value="Change password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change password" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

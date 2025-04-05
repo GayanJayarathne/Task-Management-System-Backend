@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const { sendEmail } = require('../utils/helpers');
 
 const createUser = async (req, res) => {
     try {
@@ -11,6 +12,8 @@ const createUser = async (req, res) => {
 
         const user = new User(req.body);
         await user.save();
+
+        await sendEmail(user.email, `Welcome MERN Stack Assignment. Yu can login to the app using ${user.email}. Thank you.`);
 
         res.status(201).json(user);
     } catch (error) {
