@@ -105,6 +105,36 @@ const submitPassword = async (req, res) => {
     });
 };
 
+//Change Password
+const changePassword = async (req, res) => {
+    const { email, password, newPassword } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+        return res.status(404).json({ message: "User not found." });
+    }
+
+    if (!newPassword) {
+        return res.status(400).json({ message: "New password is required." });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        return res.status(400).json({ message: "Invalid current password." });
+    }
+
+    const hashedNewPassword = await bcrypt.hash(newPassword, saltRounds);
+    user.password = hashedNewPassword;
+
+    await user.save();
+
+    return res.status(200).json({
+        message: "Password changed successfully.",
+    });
+};
+
+
 //Token refresh
 const refreshToken = async (req, res) => {
     const { refreshToken } = req.body;
@@ -153,4 +183,4 @@ const refreshToken = async (req, res) => {
     }
 };
 
-module.exports = { requestOTP, validateOTP, submitPassword, refreshToken };
+module.exports = { requestOTP, validateOTP, submitPassword, refreshToken, changePassword };

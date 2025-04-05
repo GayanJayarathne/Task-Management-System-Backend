@@ -10,7 +10,7 @@ const authenticateToken = (req, res, next) => {
     if (!token) return res.status(401).json({ message: 'Access token missing' });
 
     jwt.verify(token, secretKey, (err, user) => {
-        if (err) return res.status(403).json({ error:err,message: 'Invalid or expired token',secretKey:"secretKey" });
+        if (err) return res.status(401).json({ error:err,message: 'Invalid or expired token',secretKey:"secretKey" });
         req.user = user;
         next();
     });
