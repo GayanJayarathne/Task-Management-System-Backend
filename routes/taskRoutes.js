@@ -3,11 +3,15 @@ const { createTask, getTasks, getTaskById, updateTask, deleteTask, getTasksByUse
 
 const router = express.Router();
 
-router.post("/", createTask);
-router.get("/", getTasks);
-router.get("/user/:userId", getTasksByUserId);
-router.get("/:id", getTaskById);
-router.put("/:id", updateTask);
-router.delete("/:id", deleteTask);
+const { authenticateToken, authorizeRoles } = require('../middleware/auth');
+
+router.use(authenticateToken);
+
+router.post("/",authorizeRoles('admin'), createTask);
+router.get("/",authorizeRoles('admin'), getTasks);
+router.get("/user/:userId",authorizeRoles('admin','basic-user'), getTasksByUserId);
+router.get("/:id",authorizeRoles('admin','basic-user'), getTaskById);
+router.put("/:id",authorizeRoles('admin','basic-user'), updateTask);
+router.delete("/:id",authorizeRoles('admin'), deleteTask);
 
 module.exports = router;

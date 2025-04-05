@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const saltRounds = 10;
 const secretKey = process.env.JWT_SECRET_KEY;
+const refreshSecretKey = process.env.JWT_REFRESH_SECRET_KEY;
 
 //Email Verification and OTP Generation
 const requestOTP = async (req, res) => {
@@ -32,8 +33,6 @@ const requestOTP = async (req, res) => {
 const validateOTP = async (req, res) => {
     const { email, otp } = req.body;
     const user = await User.findOne({ email });
-
-    console.log(user)
 
     if (!user || user.otp !== otp || new Date() > user.otpExpiration) {
         return res.status(400).json({ message: 'Invalid or expired OTP.' });
@@ -80,6 +79,12 @@ const submitPassword = async (req, res) => {
         { expiresIn: '1h' }
     );
 
+    const refreshToken = jwt.sign(
+        { id: user._id },
+        refreshSecretKey,
+        { expiresIn: '7d' }
+    );
+
     const userData = {
         user : {
             id: user._id,
@@ -90,7 +95,8 @@ const submitPassword = async (req, res) => {
             mobile: user.mobile,
             isEnabled: user.isEnabled,
         },
-        token: token
+        token: token,
+        refreshToken: refreshToken
     };
 
     res.status(200).json({
@@ -99,4 +105,52 @@ const submitPassword = async (req, res) => {
     });
 };
 
-module.exports = { requestOTP, validateOTP, submitPassword };
+//Token refresh
+const refreshToken = async (req, res) => {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) {
+        return res.status(401).json({ message: 'Refresh token is required' });
+    }
+
+    try {
+        // Verify refresh token
+        const decoded = jwt.verify(refreshToken, refreshSecretKey);
+
+        const user = await User.findById(decoded.id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        const newAccessToken = jwt.sign(
+            {
+                id: user._id,
+                email: user.email,
+                role: user.role
+            },
+            JWT_SECRET,
+            { expiresIn: '1h' }
+        );
+
+        const userData = {
+            user : {
+                id: user._id,
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                role: user.role,
+                mobile: user.mobile,
+                isEnabled: user.isEnabled,
+            },
+            token: newAccessToken,
+            refreshToken: refreshToken
+        };
+
+        res.json({
+            message: "Success",
+            data: userData,
+        });
+    } catch (err) {
+        return res.status(403).json({ message: 'Invalid or expired refresh token' });
+    }
+};
+
+module.exports = { requestOTP, validateOTP, submitPassword, refreshToken };

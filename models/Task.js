@@ -9,6 +9,8 @@ const taskSchema = new mongoose.Schema({
     },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     isEnabled: { type: Boolean, default: false },
+    isCompleted: { type: Boolean, default: false },
+    completionDate: { type: String },
 }, { timestamps: true });
 
 module.exports = mongoose.model("Task", taskSchema);
