@@ -74,7 +74,7 @@ const submitPassword = async (req, res) => {
     } else {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(401).json({ message: 'Invalid password.' });
+            return res.status(400).json({ message: 'Invalid password.' });
         }
     }
 
@@ -110,7 +110,7 @@ const submitPassword = async (req, res) => {
     });
 };
 
-//Change Password
+//Change Password 
 const changePassword = async (req, res) => {
     const { email, password, newPassword } = req.body;
 
