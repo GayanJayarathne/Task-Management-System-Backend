@@ -24,7 +24,12 @@ const requestOTP = async (req, res) => {
     user.otpExpiration = otpExpiration;
     await user.save();
 
-    await sendEmail(user.email, 'Your OTP Code', `Your OTP code is ${otp}. It will expire in 10 minutes.`);
+    const recipientEmail = user.email;
+    const subject = 'Your OTP Code';
+    const text = `Your OTP code is: ${otp}`;
+    const html = `<strong>Your OTP code is: ${otp}</strong>`;
+
+    await sendEmail(recipientEmail, subject, text, html);
 
     res.status(200).json({ message: 'OTP sent to your email.' });
 };

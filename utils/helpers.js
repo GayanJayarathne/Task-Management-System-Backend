@@ -1,26 +1,31 @@
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const generateOTP = () => {
     return crypto.randomInt(100000, 999999).toString();
 };
 
-const sendEmail = async (to, subject, text) => {
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.mailtrap.io',
-        port: 2525,
-        auth: {
-            user: process.env.MAILTRAP_USER,
-            pass: process.env.MAILTRAP_PASS,
-        },
-    });
+const sgMail = require('@sendgrid/mail');
 
-    await transporter.sendMail({
-        from: '"Task Management Sytem" <gayan@taskmanagementsystem.com>',
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+const sendEmail = async (to, subject, text, html) => {
+    const msg = {
         to,
+        from: 'krgayan97@gmail.com',
         subject,
         text,
-    });
+        html,
+    };
+
+    try {
+        await sgMail.send(msg);
+        console.log('Email sent successfully');
+    } catch (error) {
+        console.error('Error sending email:', error);
+        console.error('Error sending email body:', error.response.body.errors);
+    }
 };
 
 module.exports = { generateOTP, sendEmail };
