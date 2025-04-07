@@ -15,7 +15,7 @@ Ensure you have the following installed on your machine:
 
 1. Clone the repository:
    ```bash
-   https://github.com/GayanJayarathne/Task-Management-System-Backend
+   git clone https://github.com/GayanJayarathne/Task-Management-System-Backend
 
 2. Navigate into the project directory:
 
@@ -32,3 +32,9 @@ Ensure you have the following installed on your machine:
 1. To start the application, run:
 
    ### `npm run dev`
+
+
+## API Collection
+
+   ```bash
+   https://team-tms-6027.postman.co/workspace/Team-TMS-Workspace~a276abad-83d6-4e24-a33a-1da4be8026ea/collection/24302542-f46d8417-5d28-4860-beea-d2fecb254122?action=share&creator=24302542
