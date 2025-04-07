@@ -110,7 +110,7 @@ const submitPassword = async (req, res) => {
     });
 };
 
-//Change Password 
+//Change Password
 const changePassword = async (req, res) => {
     const { email, password, newPassword } = req.body;
 
@@ -161,20 +161,11 @@ const refreshToken = async (req, res) => {
                 email: user.email,
                 role: user.role
             },
-            JWT_SECRET,
+            secretKey,
             { expiresIn: '1h' }
         );
 
         const userData = {
-            user : {
-                id: user._id,
-                email: user.email,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                role: user.role,
-                mobile: user.mobile,
-                isEnabled: user.isEnabled,
-            },
             token: newAccessToken,
             refreshToken: refreshToken
         };
